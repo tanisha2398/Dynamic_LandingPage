@@ -18,7 +18,7 @@ function showTime() {
   //output tym
   time.innerHTML = `${hour}<span>:</span>${addZeros(
     minute
-  )}<span>:</span>${addZeros(second)}`;
+  )}<span>:</span>${addZeros(second)} ${ampm}`;
 
   setTimeout(showTime, 1000);
 }

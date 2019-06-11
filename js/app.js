@@ -55,6 +55,20 @@ function getName() {
     name.textContent = localStorage.getItem("name");
   }
 }
+
+//set name
+function setName(e) {
+  if (e.type === "keypress") {
+    //make sure enter is pressed
+    if (e.which == 13 || e.keyCode == 13) {
+      localStorage.setItem("name", e.target.innerText);
+      name.blur();
+    }
+  } else {
+    localStorage.setItem("name", e.target.innerText);
+  }
+}
+
 //get focus
 function getFocus() {
   if (localStorage.getItem("focus") === null) {
@@ -63,6 +77,10 @@ function getFocus() {
     focus.textContent = localStorage.getItem("focus");
   }
 }
+
+name.addEventListener("keypress", setName);
+name.addEventListener("blur", setName);
+
 //run
 showTime();
 setBackgrdAndGreet();
